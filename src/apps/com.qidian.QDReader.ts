@@ -105,8 +105,7 @@ export default defineAppConfig({
       rules: '[id="scanLogin"]',
       snapshotUrls: 'https://i.gkd.li/import/12903081',
     },
-    {
-      enable: false,
+    {enable: false,
       key: 11,
       name: '信息流广告',
       desc: '自动点击【x】',
@@ -114,5 +113,36 @@ export default defineAppConfig({
       rules: 'View[desc="更多游戏"] - ImageView[clickable=true]',
       snapshotUrls: 'https://i.gkd.li/import/13406169',
     },
-  ],
+    {enable: false,
+      key: 12,
+      name: '起点领章节卡',
+      desc: '使用QD模块去除广告后自动领取章节卡',
+      activityIds:'com.qidian.QDReader.ui.activity.QDBrowserActivity',
+      rules: [
+        {
+          matches: '[text="看视频领福利"]',
+          snapshotUrls: 'https://i.gkd.li/import/13606903',
+        },
+        {
+          matches: '[text="我知道了"]',
+          snapshotUrls: [
+            'https://i.gkd.li/import/13606901',
+            ],
+        },
+      ],
+    },
+    {enable: false,
+      key: 13,
+      name: 'sharebook模块广告确认',
+      desc: 'sharebook模块弹出公告时确认',
+      activityIds:'com.qidian.QDReader.ui.activity.MainGroupActivity',
+      rules: [
+        {
+          matches: '[id$="/button1"]',
+          snapshotUrls: [
+            'https://i.gkd.li/import/13607586',
+          ],
+        },
+      ],
+  },
 });
